@@ -46,7 +46,7 @@ export default function Footer() {
               </div>
               <div>
                 <h2 className="mb-6 text-sm font-semibold uppercase className">
-                Structure
+                  Structure
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
