@@ -37,16 +37,22 @@ export default function App() {
   };
   return (
     <>
-      <div className="flex gap-1 w-full items-center mb-2 ">
+      <div className="flex gap-1 w-full items-center mb-4 ">
         <Input
+          size="sm"
           type="text"
           value={value}
           onChange={(e) => setValue(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="请输入文件地址"
         />
-        <Button color="secondary" isLoading={isLoading} onClick={submit}>
-          提交
+        <Button
+          size="md"
+          color="secondary"
+          isLoading={isLoading}
+          onClick={submit}
+        >
+          submit
         </Button>
       </div>
       {list.length == 0 && isLoading ? (
@@ -55,30 +61,32 @@ export default function App() {
         <Card>
           {list.map((item, index) => {
             return (
-              <>
-                {index === 0 ? (
+              <div key={index}>
+                <>
+                  {index === 0 ? (
+                    <CardBody>
+                      {list.join(",").includes("检查全部通过，可以上传！") ? (
+                        <div className="flex items-center gap-2 text-green-600">
+                          <Success />
+                          验证通过
+                        </div>
+                      ) : (
+                        <div className="flex  items-center gap-2 text-red-600">
+                          验证失败
+                          <Error />
+                        </div>
+                      )}
+                    </CardBody>
+                  ) : (
+                    <></>
+                  )}
+                  <Divider />
                   <CardBody>
-                    {list.join(",").includes("检查全部通过，可以上传！") ? (
-                      <div className="flex items-center gap-2 text-green-600">
-                        <Success />
-                        验证通过
-                      </div>
-                    ) : (
-                      <div className="flex  items-center gap-2 text-red-600">
-                        验证失败
-                        <Error />
-                      </div>
-                    )}
+                    <p>{item}</p>
                   </CardBody>
-                ) : (
-                  <></>
-                )}
-                <Divider />
-                <CardBody>
-                  <p>{item}</p>
-                </CardBody>
-                <Divider />
-              </>
+                  <Divider />
+                </>
+              </div>
             );
           })}
         </Card>
