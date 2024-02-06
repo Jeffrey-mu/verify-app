@@ -8,9 +8,7 @@ export default function Footer() {
           <ul>
             <li>Copyright 2023</li>
             <li>
-              <NavLink to='/about'>
-                关于我们
-              </NavLink>
+              <NavLink to="/about">关于我们</NavLink>
             </li>
           </ul>
         </div>

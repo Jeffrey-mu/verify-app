@@ -1,5 +1,5 @@
 .max_width {
-  width: min(1400px, 100% - 30px);
+  width: min(1536px, 100% - 30px);
   margin-inline: auto;
 }
 
@@ -91,4 +91,4 @@ footer ul li {
 .fade-exit-active {
   opacity: 0;
   transition: opacity 300ms;
-}/*# sourceMappingURL=index.css.map */
+} /*# sourceMappingURL=index.css.map */
