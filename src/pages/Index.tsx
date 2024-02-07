@@ -21,6 +21,14 @@ export default function App() {
           setList(resList);
         }
         setIsLoading(false);
+      })
+      .catch((err) => {
+        const resList = [
+          ["请求失败,请重试"],
+          ...(list.length ? [...list] : []),
+        ];
+        setList(resList);
+        setIsLoading(false);
       });
   }
 
@@ -43,9 +51,9 @@ export default function App() {
         />
       </div>
       {isLoading ? <Spinner /> : <></>}
-      {list.map((item_list) => {
+      {list.map((item_list, index) => {
         return (
-          <Card className="mb-3">
+          <Card className="mb-3" key={index}>
             {item_list.map((item, index) => {
               return (
                 <div key={index}>
